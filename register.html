@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        /* Background color */
+        body {
+            background-color: #f3f4f6;
+        }
+
+        /* Text color */
+        .text-blue-700 {
+            color: #FF407D; /* Adjusted color */
+        }
+
+        .text-white {
+            color: #FFFFFF;
+        }
+
+        /* Button background color */
+        .bg-blue-500 {
+            background-color: #40679E; /* Adjusted color */
+        }
+
+        /* Button hover background color */
+        .hover\:bg-blue-700:hover {
+            background-color: #1B3C73; /* Adjusted color */
+        }
+
+        /* Container background color */
+        .bg-white {
+            background-color: #FFFFFF;
+        }
+
+        /* Border color */
+        .border {
+            border-color: #CBD5E0; /* Adjusted color */
+        }
+
+        /* Focus border color */
+        .focus\:border-blue-500:focus {
+            border-color: #40679E; /* Adjusted color */
+        }
+
+        /* Link color */
+        .text-blue-500 {
+            color: #40679E; /* Adjusted color */
+        }
+
+        /* Link hover color */
+        .hover\:text-blue-500:hover {
+            color: #1B3C73; /* Adjusted color */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+    <div class="container p-4 lg:p-20 bg-white rounded-full shadow-md text-center dark:bg-gray-700 w-full lg:w-auto">
+        <header class="mb-4">
+            <h1 class="text-2xl lg:text-3xl font-bold text-blue-700 dark:text-white">User Registration</h1>
+        </header>
+
+        <div class="registration-form">
+            <form action="register2.html" method="post" class="flex flex-col items-center">
+                <label class="mb-2">
+                    <span class="text-gray-700 dark:text-gray-300">Name:</span>
+                    <input type="text" name="name" required class="border rounded-md p-2 focus:outline-none focus:border-blue-500">
+                </label>
+                <label class="mb-2">
+                    <span class="text-gray-700 dark:text-gray-300">Username:</span>
+                    <input type="text" name="username" required class="border rounded-md p-2 focus:outline-none focus:border-blue-500">
+                </label>
+                <label class="mb-2">
+                    <span class="text-gray-700 dark:text-gray-300">Email:</span>
+                    <input type="email" name="email" required class="border rounded-md p-2 focus:outline-none focus:border-blue-500">
+                </label>
+                <label class="mb-2">
+                    <span class="text-gray-700 dark:text-gray-300">Password:</span>
+                    <input type="password" name="password" required class="border rounded-md p-2 focus:outline-none focus:border-blue-500">
+                </label>
+                <button type="submit" class="bg-blue-500 text-white px-8 py-3 mt-7 rounded-md cursor-pointer transition duration-300 hover:bg-blue-700 hover:shadow-md">
+                    Register
+                </button>
+            </form>
+
+            <p class="mt-4">Already have an account? <a href="login.html" class="text-blue-500">Login</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

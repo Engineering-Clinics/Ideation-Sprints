@@ -1,0 +1,109 @@
+/* problem-giver.css */
+
+body {
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f3f4f6;
+}
+
+.header {
+    width: 100%;
+    padding: 1rem;
+    background-color: #40679E;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    animation: appear 1s forwards;
+    margin-top: 2rem;
+}
+
+h1 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    opacity: 1;
+    font-weight: 700;
+    color: #40679E;
+    margin-bottom: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-top: 1rem;
+}
+
+textarea,
+select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+input[type="checkbox"] {
+    margin-top: 1rem;
+}
+.help {
+    margin-left: 1300px;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: underline;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #40679E;
+    color: #fff;
+    border: none;
+    border-radius: 0.375rem;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1B3C73;
+}
+
+.logout {
+    padding: 0.5rem 1rem;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #FF407D;
+    color: #fff;
+    border: none;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-right: 25px;
+    margin-bottom: 1rem;
+}
+
+.logout:hover {
+    background-color: #FF1D4A;
+}
+
+@keyframes appear {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,97 @@
+<!-- problem-seeker.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Seeker</title>
+    <link rel="stylesheet" href="problem-seeker.css">
+</head>
+<body>
+    <div class="header">
+        <div class="credentials">
+            <span>Welcome, User123</span>
+        </div>
+        <div class="help">Help</div>
+        <button class="logout">Logout</button>
+    </div>
+    <div class="container">
+        <h1>Problem Seeker</h1>
+        <div class="problem-list" id="problemList">
+            <!-- Problems will be dynamically added here using JavaScript -->
+        </div>
+
+        <script>
+            // Sample problems data
+            var sampleProblemsData = [
+                { 'statement': 'Sample Problem 1', 'numOfPeople': 3 },
+                { 'statement': 'Sample Problem 2', 'numOfPeople': 5 },
+                { 'statement': 'Sample Problem 3', 'numOfPeople': 2 },
+                // Add more sample problems as needed
+            ];
+
+            // Function to dynamically add problems to the HTML
+            function renderProblems(problemsData) {
+                const problemList = document.getElementById('problemList');
+
+                // Create a table element
+                const table = document.createElement('table');
+                table.classList.add('problem-table');
+
+                // Create table header
+                const thead = document.createElement('thead');
+                const headerRow = document.createElement('tr');
+                const headers = ['Problem Statement', 'No. of People Working', 'Chat'];
+
+                headers.forEach(headerText => {
+                    const th = document.createElement('th');
+                    th.textContent = headerText;
+                    headerRow.appendChild(th);
+                });
+
+                thead.appendChild(headerRow);
+                table.appendChild(thead);
+
+                // Create table body
+                const tbody = document.createElement('tbody');
+
+                problemsData.forEach(problem => {
+                    const row = document.createElement('tr');
+
+                    const statementCell = document.createElement('td');
+                    statementCell.textContent = problem.statement;
+
+                    const peopleCell = document.createElement('td');
+                    peopleCell.textContent = problem.numOfPeople;
+
+                    const chatCell = document.createElement('td');
+                    const chatButton = document.createElement('button');
+                    chatButton.textContent = 'Chat';
+                    chatButton.addEventListener('click', () => navigateToChat(problem.statement)); // Pass the problem statement to the function
+
+                    chatCell.appendChild(chatButton);
+
+                    row.appendChild(statementCell);
+                    row.appendChild(peopleCell);
+                    row.appendChild(chatCell);
+
+                    tbody.appendChild(row);
+                });
+
+                table.appendChild(tbody);
+                problemList.appendChild(table);
+            }
+
+            // Function to navigate to the chat environment
+            function navigateToChat(problemStatement) {
+                // Replace this with your logic to navigate to the chat environment
+                console.log(`Navigating to chat for problem: ${problemStatement}`);
+            }
+
+            // Call the function to render sample problems
+            renderProblems(sampleProblemsData);
+        </script>
+    </div>
+</body>
+</html>

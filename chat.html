@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Chat</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .chat-container {
+            flex-grow: 1;
+            overflow-y: scroll;
+            padding: 1rem;
+        }
+
+        .message {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            background-color: #b3e0ff;
+            align-self: flex-end;
+        }
+
+        .other-message {
+            background-color: #e0e0e0;
+            align-self: flex-start;
+        }
+
+        .input-container {
+            background-color: #fff;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        textarea {
+            width: 70%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 1rem;
+            resize: none;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Virtual Chat</div>
+    <div class="chat-container" id="chatContainer">
+        <!-- Messages will be dynamically added here using JavaScript -->
+    </div>
+    <div class="input-container">
+        <textarea id="messageInput" placeholder="Type your message..." rows="3"></textarea>
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        // Sample chat messages
+        var sampleChatMessages = [
+            { 'user': 'User1', 'message': 'Hello, is anyone working on this problem?' },
+            { 'user': 'User2', 'message': 'Yes, I am working on it!' },
+            { 'user': 'User3', 'message': 'Me too!' },
+            // Add more sample messages as needed
+        ];
+
+        // Function to dynamically add chat messages to the HTML
+        function renderChatMessages() {
+            const chatContainer = document.getElementById('chatContainer');
+            chatContainer.innerHTML = '';
+
+            sampleChatMessages.forEach(message => {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', message.user === 'User123' ? 'user-message' : 'other-message');
+                messageElement.textContent = `${message.user}: ${message.message}`;
+
+                chatContainer.appendChild(messageElement);
+            });
+
+            // Scroll to the bottom to show the latest messages
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        // Function to send a new message
+        function sendMessage() {
+            const messageInput = document.getElementById('messageInput');
+            const newMessage = messageInput.value.trim();
+
+            if (newMessage !== '') {
+                // Add the new message to the sample messages
+                sampleChatMessages.push({ 'user': 'User123', 'message': newMessage });
+
+                // Render the updated chat messages
+                renderChatMessages();
+
+                // Clear the input field
+                messageInput.value = '';
+            }
+        }
+
+        // Call the function to render sample chat messages
+        renderChatMessages();
+    </script>
+</body>
+</html>

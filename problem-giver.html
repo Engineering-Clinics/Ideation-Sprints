@@ -1,0 +1,64 @@
+<!-- problem-giver.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Giver</title>
+    <link rel="stylesheet" href="problem-seeker.css">
+    <link rel="stylesheet" href="problem-giver.css">
+</head>
+<body>
+    <div class="header">
+        <div class="credentials">
+            <span>Welcome, User123</span>
+        </div>
+        <div class="help">Help</div>
+        <button class="logout">Logout</button>
+    </div>
+    <div class="container">
+        <h1>Problem Giver</h1>
+        <form id="problemForm">
+            <label for="problemStatement">Problem Statement:</label>
+            <textarea id="problemStatement" name="problemStatement" rows="4" required></textarea>
+
+            <label for="theme">Theme:</label>
+            <select id="theme" name="theme" required>
+                <option value="theme1">Theme 1</option>
+                <option value="theme2">Theme 2</option>
+                <option value="theme3">Theme 3</option>
+                <!-- Add more themes as needed -->
+            </select>
+
+            <label>Are you working on this problem?</label>
+            <div class="yes-no-buttons">
+                <label>
+                    <input type="radio" name="workingOnProblem" value="yes" required> Yes
+                </label>
+                <label>
+                    <input type="radio" name="workingOnProblem" value="no" required> No
+                </label>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('problemForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const problemStatement = document.getElementById('problemStatement').value;
+            const theme = document.getElementById('theme').value;
+            const workingOnProblem = document.querySelector('input[name="workingOnProblem"]:checked').value;
+
+            // You can perform further actions, like sending the data to the server or processing it.
+            console.log('Submitted Data:');
+            console.log('Problem Statement:', problemStatement);
+            console.log('Theme:', theme);
+            console.log('Working on Problem:', workingOnProblem);
+        });
+    </script>
+</body>
+</html>
